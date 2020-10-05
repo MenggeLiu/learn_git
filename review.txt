@@ -7,3 +7,6 @@ git commit -m “massage” # 将文件提交到代码仓库，并添加说明
 git status # 查看当前工作树状态
 
 git diff "filename" # 查看修改的文件的具体修改内容
+
+git log --pretty=oneline # 查看修改日志，每次修改一行
+
