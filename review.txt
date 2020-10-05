@@ -1,3 +1,5 @@
+git init # 初始化一个git仓库
+
 git add "filename" # 添加新文件到git仓库
 
 git commit -m “massage” # 将文件提交到代码仓库，并添加说明
