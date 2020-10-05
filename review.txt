@@ -30,7 +30,7 @@ git rm 'filename'  # 从版本库中删除文件
 
 =====
 
-=====远程仓库
+=====远程仓库=====
 
 利用GitHub作为远程仓库，来同步保存本地工作
 
@@ -43,4 +43,17 @@ git push -u origin master # 把本地的所有内容推送到远程仓库（首�
 从远程仓库克隆时，先在GitHub创建一个仓库，然后使用git clone命令即可
 
 git clone 'git-url' # 把代码仓克隆到本地
+
+=====
+
+=====分支管理=====
+
+把每次的提交看作一条时间线，严格来讲HEAD并不指向某一次的提交，而是指向master分支（即主分支）
+每次提交，master分支向前移动一步，HEAD也随着master而移动，创建新的dev分支时，本质上只是创建了一个新的指针
+
+git checkout -b dev # 创建并切换到dev分支
+
+git branch dev
+git checkout dev # 创建并切换到dev分支（分两步）
+
 
