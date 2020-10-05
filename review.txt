@@ -106,6 +106,26 @@ git remote # 查看远程库的分支信息
 
 git remote # 查看远程库的详细信息，可看到抓取和推送的地址（有权限的情况下）
 
+git push origin master # 推送master分支
+
+git push origin dev # 推送dev分支，一般来讲，需要共同开发的分支才需要推送到远程，如不需要合作开发，留存本地即可
+# 如果推送失败，需要先抓取新的更新，如果有冲突就手动解决冲突。
+
+git pull # 抓取远程的新提交
+
+
+=====标签管理=====
+打上版本标签，相对于commit id方便记忆，相当于别名或代号
+
+git tag v1.0 # 在一个分支下打上标签
+git tag # 查看所有标签，按照字母排序
+
+git tag v0.9 'commit id' # 对某个历史commit打上标签
+
+git show v0.9查看某个标签的详细信息
+
+git tag -a v0.1 -m "version 0.1 released" 'commit id' # 创建带有说明信息的标签
+
 
 
 
