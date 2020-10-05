@@ -67,9 +67,12 @@ git switch master # 切换到已有的分支
 git merge 可能会出现冲突，当两个分支对同一个文件的修改提交不一致的时候，需要手动解决冲突
 git会自动将两个分支对于同一文件的修改合并，并以符号标记出两个分支的不同内容，这时手动修改文件确定要保存的内容
 修改完成后，在当前分支的merge特殊分支下，add+commit提交确认后就完成了merge的冲突处理
-----
+
 分支完成合并后，基本完成任务，尽量及时删除不必要的分支，避免麻烦
+git branch -d dev # 删除dev分支
 ----
+
+git log --graph --pertty=oneline --abbrev-commit # 查看分支合并的情况
 
 
 
