@@ -10,4 +10,9 @@ git diff "filename" # 查看修改的文件的具体修改内容
 
 git log --pretty=oneline # 查看修改日志，每次修改一行
 
-###等待回退
+git reset --hard HEAD^ # 退回到上一步
+
+git reset --hard "版本号" # 退回到指定版本，可用git log 查询，只要能找到版本号就可以自由切换
+
+git reflog # 如果退回到之前版本，又想恢复新版本，而之前的窗口已经关闭无法查看之前的残留信息，可用该命令来查看所有的历史命令
+
