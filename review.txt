@@ -63,7 +63,7 @@ git switch -c dev # 创建并切换到dev分支，采用switch方法看起来更
 
 git switch master # 切换到已有的分支
 
-----
+----merge冲突解决----
 git merge 可能会出现冲突，当两个分支对同一个文件的修改提交不一致的时候，需要手动解决冲突
 git会自动将两个分支对于同一文件的修改合并，并以符号标记出两个分支的不同内容，这时手动修改文件确定要保存的内容
 修改完成后，在当前分支的merge特殊分支下，add+commit提交确认后就完成了merge的冲突处理
@@ -73,6 +73,42 @@ git branch -d dev # 删除dev分支
 ----
 
 git log --graph --pertty=oneline --abbrev-commit # 查看分支合并的情况
+
+----采用no-ff方式合并分支----
+git 在merge操作时会尽可能地使用fast forward方法，当dev分支创建和提交时间段中master分支没有发生变化，
+在master下合并dev分支时直接移动指针即可，但这样合并后在master下无法看出对master的修改，
+因为master下不存在相应的commit记录，而加入--no-ff后强制不使用fast forward方法，即可以在合并分支时，
+在master下创建commit记录，对于master分支的修改可留下更多的痕迹，更容易复盘，更推荐使用--no-ff方法进行merge
+
+git merge --no-ff -m "merge with no-ff" dev # merge时留下commit记录（-m）
+----
+
+----bug分支----
+如果当前正在dev下工作，突然出现一个bug修复任务，而当前dev下有未完成未提交的工作，可将当前工作暂存
+git stash # 将当前工作区的内容暂存，即可情况当前工作区
+
+git switch -c bug-fix # 创建一个新的分支修复bug
+git add + commit # 完成bug修复并提交
+git merge --no-ff -m 'merge bug-fix' bug-fix # 将bug修复后在master下合并到master
+git branch -d bug-fix # 完成修复工作，删除修复bug所用的分支
+
+完成bug修复任务后回到dev分支可继续先前的工作，先前已将dev工作区的工作暂存，工作区为空
+git stash list # 查看暂存的工作列表
+git stash pop # 弹出暂存的工作内容到工作区，并删除stash的暂存
+
+但是master下已经完成了一次bug修复工作，在dev下可以快速复制
+git cherry-pick 'id' # id为master下合并bug-fix的commit id，可以快速在dev下复制相同的提交，完成dev分支的bug修复
+----
+
+git branch -d 'branch-name' # 强行删除一个未merge的分支，适用于被临时取消的开发任务
+
+git remote # 查看远程库的分支信息
+
+git remote # 查看远程库的详细信息，可看到抓取和推送的地址（有权限的情况下）
+
+
+
+
 
 
 
