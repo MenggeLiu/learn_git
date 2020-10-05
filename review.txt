@@ -59,5 +59,11 @@ git checkout dev # 创建并切换到dev分支（分两步）
 
 git merge dev # dev有了新的提交后，在master下可以合并dev的修改，相当于把master同步到dev的提交记录点
 
+git switch -c dev # 创建并切换到dev分支，采用switch方法看起来更为科学
+
+git switch master # 切换到已有的分支
+
+
+
 
 
