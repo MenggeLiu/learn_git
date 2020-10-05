@@ -10,3 +10,4 @@ git diff "filename" # 查看修改的文件的具体修改内容
 
 git log --pretty=oneline # 查看修改日志，每次修改一行
 
+###等待回退
