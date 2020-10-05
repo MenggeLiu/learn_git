@@ -55,6 +55,9 @@ git checkout -b dev # 创建并切换到dev分支
 
 git branch dev
 git checkout dev # 创建并切换到dev分支（分两步）
+# 感觉每次先确认工作区状态再进行切换分子较为合适，防止出现一些奇怪的事情
 
-#in dev===
+git merge dev # dev有了新的提交后，在master下可以合并dev的修改，相当于把master同步到dev的提交记录点
+
+
 
